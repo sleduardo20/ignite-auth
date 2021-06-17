@@ -1,0 +1,59 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest":true,
+        "node":true
+    },
+    "extends": [
+        "plugin:react/recommended",
+        "airbnb",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+     "plugins": ["react", "react-hooks", "@typescript-eslint"],
+      
+     "rules": {
+        "@typescript-eslint/no-unused-vars" : "off",
+        "react/jsx-filename-extension": [1, {"extensions": [".tsx"]}],
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": "warn",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "prettier/prettier": "error",
+        "import/prefer-default-export": "off",
+        "react/jsx-one-expression-per-line": "off",
+        "no-unused-expressions":"off",
+        "react/jsx-props-no-spreading": "off",
+        "import/no-duplicates": "off",
+        "@typescript-eslint/camelcase":"off",
+        "import/no-unresolved": [
+          2, 
+          { "caseSensitive": false }
+       ],
+       "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+        "import/extensions": [
+          "error",
+          "ignorePackages",
+          {
+            "ts": "never",
+            "tsx": "never"
+          }
+        ]
+    },
+    "settings": {
+      "import/resolver": {
+        "typescript": {}
+      }
+    }
+}
