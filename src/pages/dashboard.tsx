@@ -1,3 +1,4 @@
+import { Can } from 'components/Can';
 import { useAuth } from 'hooks/useAuth';
 import { useEffect } from 'react';
 import { setupAPIClient } from 'services/api';
@@ -5,16 +6,24 @@ import { api } from 'services/apiClient';
 import { withSSRAuth } from 'utils/withSSRAuth';
 
 const Dashboard = () => {
-  const { user } = useAuth();
+  const { user, signOut } = useAuth();
 
   useEffect(() => {
-    api
-      .get('me')
-      .then(response => console.log(response))
-      .catch(err => console.log(err));
+    api.get('me').then(response => console.log(response));
   }, []);
 
-  return <h1>Dashboard:{user?.email}</h1>;
+  return (
+    <>
+      <button type="button" onClick={signOut}>
+        SignOut
+      </button>
+      <h1>Dashboard:{user?.email}</h1>
+
+      <Can permissions={['metrics.list']}>
+        <div>Metricas</div>
+      </Can>
+    </>
+  );
 };
 
 export default Dashboard;
